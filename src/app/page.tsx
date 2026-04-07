@@ -111,19 +111,56 @@ export default function Home() {
   ];
 
   const teachers = [
-    { stt: 1, maGV: "GV001", hoTen: "Nguyễn Văn A", email: "nguyenvana@edu.vn", sdt: "0911234567", mon: "Lập Trình Cơ Bản" },
-    { stt: 2, maGV: "GV002", hoTen: "Trần Thị B", email: "tranthib@edu.vn", sdt: "0912345678", mon: "Cấu Trúc Dữ Liệu" },
-    { stt: 3, maGV: "GV003", hoTen: "Lê Văn C", email: "levanc@edu.vn", sdt: "0913456789", mon: "Cơ Sở Dữ Liệu" },
-    { stt: 4, maGV: "GV004", hoTen: "Phạm Thị D", email: "phamthid@edu.vn", sdt: "0914567890", mon: "Mạng Máy Tính" },
-    { stt: 5, maGV: "GV005", hoTen: "Hoàng Văn E", email: "hoangvane@edu.vn", sdt: "0915678901", mon: "Lập Trình Web" },
+    // Giảng viên CNTT
+    { stt: 1, maGV: "GV001", hoTen: "Nguyễn Văn An", email: "an.nguyen@edu.vn", sdt: "0911234567", mon: "Lập Trình Cơ Bản", hocVi: "TS", chuyenNganh: "Công nghệ phần mềm" },
+    { stt: 2, maGV: "GV002", hoTen: "Trần Thị Linh", email: "linh.tran@edu.vn", sdt: "0912345678", mon: "Cấu Trúc Dữ Liệu", hocVi: "TS", chuyenNganh: "Khoa học máy tính" },
+    { stt: 3, maGV: "GV003", hoTen: "Lê Văn Minh", email: "minh.le@edu.vn", sdt: "0913456789", mon: "Cơ Sở Dữ Liệu", hocVi: "TS", chuyenNganh: "Hệ thống thông tin" },
+    { stt: 4, maGV: "GV004", hoTen: "Phạm Thị Hoa", email: "hoa.pham@edu.vn", sdt: "0914567890", mon: "Mạng Máy Tính", hocVi: "TS", chuyenNganh: "Mạng và truyền thông" },
+    { stt: 5, maGV: "GV005", hoTen: "Hoàng Văn Đức", email: "duc.hoang@edu.vn", sdt: "0915678901", mon: "Lập Trình Web", hocVi: "TS", chuyenNganh: "Công nghệ web" },
+    { stt: 6, maGV: "GV006", hoTen: "Vũ Thị Mai", email: "mai.vu@edu.vn", sdt: "0916789012", mon: "Công Nghệ Phần Mềm", hocVi: "TS", chuyenNganh: "Kỹ thuật phần mềm" },
+    { stt: 7, maGV: "GV007", hoTen: "Đặng Văn Tùng", email: "tung.dang@edu.vn", sdt: "0917890123", mon: "Hệ Điều Hành", hocVi: "TS", chuyenNganh: "Hệ thống" },
+    { stt: 8, maGV: "GV008", hoTen: "Bùi Thị Lan", email: "lan.bui@edu.vn", sdt: "0918901234", mon: "An Toàn Thông Tin", hocVi: "TS", chuyenNganh: "An ninh mạng" },
+    { stt: 9, maGV: "GV009", hoTen: "Ngô Văn Hải", email: "hai.ngo@edu.vn", sdt: "0919012345", mon: "Trí Tuệ Nhân Tạo", hocVi: "PGS.TS", chuyenNganh: "AI & Machine Learning" },
+    { stt: 10, maGV: "GV010", hoTen: "Trịnh Thị Thu", email: "thu.trinh@edu.vn", sdt: "0920123456", mon: "Big Data", hocVi: "TS", chuyenNganh: "Khoa học dữ liệu" },
+
+    // Giảng viên Kế Toán
+    { stt: 11, maGV: "GV011", hoTen: "Lý Văn Khoa", email: "khoa.ly@edu.vn", sdt: "0921234567", mon: "Kế Toán Tài Chính", hocVi: "TS", chuyenNganh: "Kế toán doanh nghiệp" },
+    { stt: 12, maGV: "GV012", hoTen: "Đỗ Thị Hạnh", email: "hanh.do@edu.vn", sdt: "0922345678", mon: "Kế Toán Quản Trị", hocVi: "TS", chuyenNganh: "Quản trị tài chính" },
+    { stt: 13, maGV: "GV013", hoTen: "Phí Văn Long", email: "long.phi@edu.vn", sdt: "0923456789", mon: "Thuế Và Luật Thuế", hocVi: "TS", chuyenNganh: "Luật kinh tế" },
+    { stt: 14, maGV: "GV014", hoTen: "Nguyễn Thị Trang", email: "trang.nguyen@edu.vn", sdt: "0924567890", mon: "Kiểm Toán", hocVi: "TS", chuyenNganh: "Kiểm toán độc lập" },
+    { stt: 15, maGV: "GV015", hoTen: "Trần Văn Toàn", email: "toan.tran@edu.vn", sdt: "0925678901", mon: "Tài Chính Doanh Nghiệp", hocVi: "TS", chuyenNganh: "Tài chính doanh nghiệp" },
+
+    // Giảng viên Quản Trị Kinh Doanh
+    { stt: 16, maGV: "GV016", hoTen: "Lê Thị Linh", email: "linh.le@edu.vn", sdt: "0926789012", mon: "Quản Lý Nhân Sự", hocVi: "TS", chuyenNganh: "Tổ chức và nhân sự" },
+    { stt: 17, maGV: "GV017", hoTen: "Phạm Văn Hùng", email: "hung.pham@edu.vn", sdt: "0927890123", mon: "Marketing", hocVi: "TS", chuyenNganh: "Marketing và bán hàng" },
+    { stt: 18, maGV: "GV018", hoTen: "Hoàng Thị Mai", email: "mai.hoang@edu.vn", sdt: "0928901234", mon: "Chiến Lược Kinh Doanh", hocVi: "PGS.TS", chuyenNganh: "Chiến lược doanh nghiệp" },
+    { stt: 19, maGV: "GV019", hoTen: "Vũ Văn Đức", email: "duc.vu@edu.vn", sdt: "0929012345", mon: "Quản Lý Dự Án", hocVi: "TS", chuyenNganh: "Quản lý dự án" },
+    { stt: 20, maGV: "GV020", hoTen: "Đặng Thị Hoa", email: "hoa.dang@edu.vn", sdt: "0930123456", mon: "Kinh Tế Vi Mô", hocVi: "TS", chuyenNganh: "Kinh tế học" },
+
+    // Giảng viên Tài Chính Ngân Hàng
+    { stt: 21, maGV: "GV021", hoTen: "Bùi Văn Sơn", email: "son.bui@edu.vn", sdt: "0931234567", mon: "Ngân Hàng Thương Mại", hocVi: "TS", chuyenNganh: "Ngân hàng" },
+    { stt: 22, maGV: "GV022", hoTen: "Ngô Thị Thu", email: "thu.ngo@edu.vn", sdt: "0932345678", mon: "Tài Chính Quốc Tế", hocVi: "TS", chuyenNganh: "Tài chính quốc tế" },
+    { stt: 23, maGV: "GV023", hoTen: "Trịnh Văn Tùng", email: "tung.trinh@edu.vn", sdt: "0933456789", mon: "Đầu Tư Chứng Khoán", hocVi: "TS", chuyenNganh: "Chứng khoán" },
+    { stt: 24, maGV: "GV024", hoTen: "Lý Thị Nga", email: "nga.ly@edu.vn", sdt: "0934567890", mon: "Bảo Hiểm", hocVi: "TS", chuyenNganh: "Bảo hiểm và rủi ro" },
+    { stt: 25, maGV: "GV025", hoTen: "Đỗ Văn Minh", email: "minh.do@edu.vn", sdt: "0935678901", mon: "Ngân Hàng Trung Ương", hocVi: "PGS.TS", chuyenNganh: "Chính sách tiền tệ" },
   ];
 
   const schedules = [
-    { stt: 1, monHoc: "Lập Trình Cơ Bản", lop: "CNTT2024", thu: "Thứ 2", tiet: "1-3", phong: "A101", giangVien: "TS. Nguyễn Văn A" },
-    { stt: 2, monHoc: "Cấu Trúc Dữ Liệu", lop: "CNTT2024", thu: "Thứ 3", tiet: "4-6", phong: "A102", giangVien: "TS. Trần Thị B" },
-    { stt: 3, monHoc: "Cơ Sở Dữ Liệu", lop: "CNTT2023", thu: "Thứ 4", tiet: "1-3", phong: "A103", giangVien: "TS. Lê Văn C" },
-    { stt: 4, monHoc: "Mạng Máy Tính", lop: "CNTT2023", thu: "Thứ 5", tiet: "4-6", phong: "A104", giangVien: "TS. Phạm Thị D" },
-    { stt: 5, monHoc: "Lập Trình Web", lop: "CNTT2024", thu: "Thứ 6", tiet: "7-9", phong: "A105", giangVien: "TS. Hoàng Văn E" },
+    { stt: 1, monHoc: "Lập Trình Cơ Bản", lop: "CNTT2024", thu: "Thứ 2", tiet: "1-3", phong: "A101", giangVien: "TS. Nguyễn Văn An" },
+    { stt: 2, monHoc: "Cấu Trúc Dữ Liệu", lop: "CNTT2024", thu: "Thứ 3", tiet: "4-6", phong: "A102", giangVien: "TS. Trần Thị Linh" },
+    { stt: 3, monHoc: "Cơ Sở Dữ Liệu", lop: "CNTT2023", thu: "Thứ 4", tiet: "1-3", phong: "A103", giangVien: "TS. Lê Văn Minh" },
+    { stt: 4, monHoc: "Mạng Máy Tính", lop: "CNTT2023", thu: "Thứ 5", tiet: "4-6", phong: "A104", giangVien: "TS. Phạm Thị Hoa" },
+    { stt: 5, monHoc: "Lập Trình Web", lop: "CNTT2024", thu: "Thứ 6", tiet: "7-9", phong: "A105", giangVien: "TS. Hoàng Văn Đức" },
+    { stt: 6, monHoc: "Công Nghệ Phần Mềm", lop: "CNTT2024", thu: "Thứ 7", tiet: "1-3", phong: "A106", giangVien: "TS. Vũ Thị Mai" },
+    { stt: 7, monHoc: "Hệ Điều Hành", lop: "CNTT2023", thu: "Thứ 2", tiet: "4-6", phong: "A107", giangVien: "TS. Đặng Văn Tùng" },
+    { stt: 8, monHoc: "An Toàn Thông Tin", lop: "CNTT2024", thu: "Thứ 3", tiet: "7-9", phong: "A108", giangVien: "TS. Bùi Thị Lan" },
+    { stt: 9, monHoc: "Trí Tuệ Nhân Tạo", lop: "CNTT2023", thu: "Thứ 4", tiet: "7-9", phong: "A109", giangVien: "PGS.TS. Ngô Văn Hải" },
+    { stt: 10, monHoc: "Big Data", lop: "CNTT2024", thu: "Thứ 5", tiet: "1-3", phong: "A110", giangVien: "TS. Trịnh Thị Thu" },
+    { stt: 11, monHoc: "Kế Toán Tài Chính", lop: "KT2024", thu: "Thứ 2", tiet: "1-3", phong: "B101", giangVien: "TS. Lý Văn Khoa" },
+    { stt: 12, monHoc: "Kế Toán Quản Trị", lop: "KT2024", thu: "Thứ 3", tiet: "4-6", phong: "B102", giangVien: "TS. Đỗ Thị Hạnh" },
+    { stt: 13, monHoc: "Thuế Và Luật Thuế", lop: "KT2024", thu: "Thứ 4", tiet: "1-3", phong: "B103", giangVien: "TS. Phí Văn Long" },
+    { stt: 14, monHoc: "Kiểm Toán", lop: "KT2024", thu: "Thứ 5", tiet: "4-6", phong: "B104", giangVien: "TS. Nguyễn Thị Trang" },
+    { stt: 15, monHoc: "Tài Chính Doanh Nghiệp", lop: "KT2024", thu: "Thứ 6", tiet: "1-3", phong: "B105", giangVien: "TS. Trần Văn Toàn" },
   ];
 
   const tuition = [
@@ -189,6 +226,92 @@ export default function Home() {
     { stt: 60, maSV: "SV060", hoTen: "Trần Thị Hạnh", lop: "TCNH2024", hocky: "Học Kỳ 1 2024-2025", soTien: 15500000, trangThai: "Đã đóng", ngayDong: "2024-08-23" },
   ];
 
+  const grades = [
+    // CNTT2024 - Lập Trình Cơ Bản
+    { stt: 1, maSV: "SV001", hoTen: "Nguyễn Minh Tuấn", lop: "CNTT2024", monHoc: "Lập Trình Cơ Bản", diemGK: 8.5, diemCK: 9.0, diemTB: 8.8, ketQua: "Xuất sắc" },
+    { stt: 2, maSV: "SV002", hoTen: "Trần Thị Hương", lop: "CNTT2024", monHoc: "Lập Trình Cơ Bản", diemGK: 7.8, diemCK: 8.2, diemTB: 8.0, ketQua: "Giỏi" },
+    { stt: 3, maSV: "SV003", hoTen: "Phạm Thị Mai", lop: "CNTT2024", monHoc: "Lập Trình Cơ Bản", diemGK: 8.0, diemCK: 8.5, diemTB: 8.3, ketQua: "Giỏi" },
+    { stt: 4, maSV: "SV004", hoTen: "Lê Văn Hùng", lop: "CNTT2024", monHoc: "Lập Trình Cơ Bản", diemGK: 6.5, diemCK: 7.0, diemTB: 6.8, ketQua: "Khá" },
+    { stt: 5, maSV: "SV005", hoTen: "Vũ Thị Lan", lop: "CNTT2024", monHoc: "Lập Trình Cơ Bản", diemGK: 8.2, diemCK: 8.8, diemTB: 8.5, ketQua: "Giỏi" },
+
+    // CNTT2024 - Cấu Trúc Dữ Liệu
+    { stt: 6, maSV: "SV001", hoTen: "Nguyễn Minh Tuấn", lop: "CNTT2024", monHoc: "Cấu Trúc Dữ Liệu", diemGK: 7.5, diemCK: 8.0, diemTB: 7.8, ketQua: "Khá" },
+    { stt: 7, maSV: "SV002", hoTen: "Trần Thị Hương", lop: "CNTT2024", monHoc: "Cấu Trúc Dữ Liệu", diemGK: 8.8, diemCK: 9.2, diemTB: 9.0, ketQua: "Xuất sắc" },
+    { stt: 8, maSV: "SV003", hoTen: "Phạm Thị Mai", lop: "CNTT2024", monHoc: "Cấu Trúc Dữ Liệu", diemGK: 7.2, diemCK: 7.8, diemTB: 7.5, ketQua: "Khá" },
+    { stt: 9, maSV: "SV004", hoTen: "Lê Văn Hùng", lop: "CNTT2024", monHoc: "Cấu Trúc Dữ Liệu", diemGK: 8.0, diemCK: 8.5, diemTB: 8.3, ketQua: "Giỏi" },
+    { stt: 10, maSV: "SV005", hoTen: "Vũ Thị Lan", lop: "CNTT2024", monHoc: "Cấu Trúc Dữ Liệu", diemGK: 7.0, diemCK: 6.5, diemTB: 6.8, ketQua: "Trung bình" },
+
+    // CNTT2023 - Cơ Sở Dữ Liệu
+    { stt: 11, maSV: "SV016", hoTen: "Lê Đình Phong", lop: "CNTT2023", monHoc: "Cơ Sở Dữ Liệu", diemGK: 8.5, diemCK: 9.0, diemTB: 8.8, ketQua: "Xuất sắc" },
+    { stt: 12, maSV: "SV017", hoTen: "Hoàng Đức Long", lop: "CNTT2023", monHoc: "Cơ Sở Dữ Liệu", diemGK: 7.8, diemCK: 8.2, diemTB: 8.0, ketQua: "Giỏi" },
+    { stt: 13, maSV: "SV018", hoTen: "Lê Thị Hà", lop: "CNTT2023", monHoc: "Cơ Sở Dữ Liệu", diemGK: 6.5, diemCK: 7.0, diemTB: 6.8, ketQua: "Khá" },
+    { stt: 14, maSV: "SV019", hoTen: "Phạm Văn Hiếu", lop: "CNTT2023", monHoc: "Cơ Sở Dữ Liệu", diemGK: 8.2, diemCK: 8.5, diemTB: 8.4, ketQua: "Giỏi" },
+    { stt: 15, maSV: "SV020", hoTen: "Hoàng Thị Diễm", lop: "CNTT2023", monHoc: "Cơ Sở Dữ Liệu", diemGK: 7.5, diemCK: 7.8, diemTB: 7.7, ketQua: "Khá" },
+
+    // KT2024 - Kế Toán Tài Chính
+    { stt: 16, maSV: "SV031", hoTen: "Đỗ Văn Khoa", lop: "KT2024", monHoc: "Kế Toán Tài Chính", diemGK: 7.8, diemCK: 8.5, diemTB: 8.2, ketQua: "Giỏi" },
+    { stt: 17, maSV: "SV032", hoTen: "Phí Thị Liên", lop: "KT2024", monHoc: "Kế Toán Tài Chính", diemGK: 8.2, diemCK: 8.8, diemTB: 8.5, ketQua: "Giỏi" },
+    { stt: 18, maSV: "SV033", hoTen: "Nguyễn Văn Thành", lop: "KT2024", monHoc: "Kế Toán Tài Chính", diemGK: 6.8, diemCK: 7.2, diemTB: 7.0, ketQua: "Khá" },
+    { stt: 19, maSV: "SV034", hoTen: "Trần Thị Ngọc", lop: "KT2024", monHoc: "Kế Toán Tài Chính", diemGK: 8.5, diemCK: 9.0, diemTB: 8.8, ketQua: "Xuất sắc" },
+    { stt: 20, maSV: "SV035", hoTen: "Lê Văn Bảo", lop: "KT2024", monHoc: "Kế Toán Tài Chính", diemGK: 7.0, diemCK: 7.5, diemTB: 7.3, ketQua: "Khá" },
+
+    // QTKD2024 - Marketing
+    { stt: 21, maSV: "SV041", hoTen: "Ngô Văn Phong", lop: "QTKD2024", monHoc: "Marketing", diemGK: 8.0, diemCK: 8.5, diemTB: 8.3, ketQua: "Giỏi" },
+    { stt: 22, maSV: "SV042", hoTen: "Trịnh Thị Yến", lop: "QTKD2024", monHoc: "Marketing", diemGK: 7.5, diemCK: 8.0, diemTB: 7.8, ketQua: "Khá" },
+    { stt: 23, maSV: "SV043", hoTen: "Lý Hải Nam", lop: "QTKD2024", monHoc: "Marketing", diemGK: 8.8, diemCK: 9.2, diemTB: 9.0, ketQua: "Xuất sắc" },
+    { stt: 24, maSV: "SV044", hoTen: "Đỗ Thị Hương", lop: "QTKD2024", monHoc: "Marketing", diemGK: 6.5, diemCK: 7.0, diemTB: 6.8, ketQua: "Khá" },
+    { stt: 25, maSV: "SV045", hoTen: "Phí Văn Minh", lop: "QTKD2024", monHoc: "Marketing", diemGK: 7.8, diemCK: 8.2, diemTB: 8.0, ketQua: "Giỏi" },
+
+    // TCNH2024 - Ngân Hàng Thương Mại
+    { stt: 26, maSV: "SV051", hoTen: "Vũ Văn Cường", lop: "TCNH2024", monHoc: "Ngân Hàng Thương Mại", diemGK: 7.5, diemCK: 8.0, diemTB: 7.8, ketQua: "Khá" },
+    { stt: 27, maSV: "SV052", hoTen: "Bùi Thị Nga", lop: "TCNH2024", monHoc: "Ngân Hàng Thương Mại", diemGK: 8.2, diemCK: 8.5, diemTB: 8.4, ketQua: "Giỏi" },
+    { stt: 28, maSV: "SV053", hoTen: "Đặng Văn Hải", lop: "TCNH2024", monHoc: "Ngân Hàng Thương Mại", diemGK: 8.5, diemCK: 9.0, diemTB: 8.8, ketQua: "Xuất sắc" },
+    { stt: 29, maSV: "SV054", hoTen: "Ngô Thị Thu", lop: "TCNH2024", monHoc: "Ngân Hàng Thương Mại", diemGK: 7.0, diemCK: 7.5, diemTB: 7.3, ketQua: "Khá" },
+    { stt: 30, maSV: "SV055", hoTen: "Trịnh Văn Hòa", lop: "TCNH2024", monHoc: "Ngân Hàng Thương Mại", diemGK: 6.8, diemCK: 7.2, diemTB: 7.0, ketQua: "Khá" },
+  ];
+
+  const attendance = [
+    // CNTT2024 - Tháng 9
+    { stt: 1, maSV: "SV001", hoTen: "Nguyễn Minh Tuấn", lop: "CNTT2024", soTietNghi: 2, tongTiet: 30, tiLe: "93%", thang: "9/2024" },
+    { stt: 2, maSV: "SV002", hoTen: "Trần Thị Hương", lop: "CNTT2024", soTietNghi: 1, tongTiet: 30, tiLe: "97%", thang: "9/2024" },
+    { stt: 3, maSV: "SV003", hoTen: "Phạm Thị Mai", lop: "CNTT2024", soTietNghi: 0, tongTiet: 30, tiLe: "100%", thang: "9/2024" },
+    { stt: 4, maSV: "SV004", hoTen: "Lê Văn Hùng", lop: "CNTT2024", soTietNghi: 4, tongTiet: 30, tiLe: "87%", thang: "9/2024" },
+    { stt: 5, maSV: "SV005", hoTen: "Vũ Thị Lan", lop: "CNTT2024", soTietNghi: 1, tongTiet: 30, tiLe: "97%", thang: "9/2024" },
+    { stt: 6, maSV: "SV006", hoTen: "Đặng Văn Minh", lop: "CNTT2024", soTietNghi: 2, tongTiet: 30, tiLe: "93%", thang: "9/2024" },
+    { stt: 7, maSV: "SV007", hoTen: "Bùi Thị Hồng", lop: "CNTT2024", soTietNghi: 0, tongTiet: 30, tiLe: "100%", thang: "9/2024" },
+    { stt: 8, maSV: "SV008", hoTen: "Ngô Quốc Trung", lop: "CNTT2024", soTietNghi: 3, tongTiet: 30, tiLe: "90%", thang: "9/2024" },
+    { stt: 9, maSV: "SV009", hoTen: "Trịnh Thị Thu", lop: "CNTT2024", soTietNghi: 1, tongTiet: 30, tiLe: "97%", thang: "9/2024" },
+    { stt: 10, maSV: "SV010", hoTen: "Lý Hải Bảo", lop: "CNTT2024", soTietNghi: 2, tongTiet: 30, tiLe: "93%", thang: "9/2024" },
+
+    // CNTT2023 - Tháng 9
+    { stt: 11, maSV: "SV016", hoTen: "Lê Đình Phong", lop: "CNTT2023", soTietNghi: 1, tongTiet: 30, tiLe: "97%", thang: "9/2024" },
+    { stt: 12, maSV: "SV017", hoTen: "Hoàng Đức Long", lop: "CNTT2023", soTietNghi: 0, tongTiet: 30, tiLe: "100%", thang: "9/2024" },
+    { stt: 13, maSV: "SV018", hoTen: "Lê Thị Hà", lop: "CNTT2023", soTietNghi: 2, tongTiet: 30, tiLe: "93%", thang: "9/2024" },
+    { stt: 14, maSV: "SV019", hoTen: "Phạm Văn Hiếu", lop: "CNTT2023", soTietNghi: 4, tongTiet: 30, tiLe: "87%", thang: "9/2024" },
+    { stt: 15, maSV: "SV020", hoTen: "Hoàng Thị Diễm", lop: "CNTT2023", soTietNghi: 1, tongTiet: 30, tiLe: "97%", thang: "9/2024" },
+
+    // KT2024 - Tháng 9
+    { stt: 16, maSV: "SV031", hoTen: "Đỗ Văn Khoa", lop: "KT2024", soTietNghi: 0, tongTiet: 25, tiLe: "100%", thang: "9/2024" },
+    { stt: 17, maSV: "SV032", hoTen: "Phí Thị Liên", lop: "KT2024", soTietNghi: 1, tongTiet: 25, tiLe: "96%", thang: "9/2024" },
+    { stt: 18, maSV: "SV033", hoTen: "Nguyễn Văn Thành", lop: "KT2024", soTietNghi: 2, tongTiet: 25, tiLe: "92%", thang: "9/2024" },
+    { stt: 19, maSV: "SV034", hoTen: "Trần Thị Ngọc", lop: "KT2024", soTietNghi: 0, tongTiet: 25, tiLe: "100%", thang: "9/2024" },
+    { stt: 20, maSV: "SV035", hoTen: "Lê Văn Bảo", lop: "KT2024", soTietNghi: 3, tongTiet: 25, tiLe: "88%", thang: "9/2024" },
+
+    // QTKD2024 - Tháng 9
+    { stt: 21, maSV: "SV041", hoTen: "Ngô Văn Phong", lop: "QTKD2024", soTietNghi: 1, tongTiet: 28, tiLe: "96%", thang: "9/2024" },
+    { stt: 22, maSV: "SV042", hoTen: "Trịnh Thị Yến", lop: "QTKD2024", soTietNghi: 0, tongTiet: 28, tiLe: "100%", thang: "9/2024" },
+    { stt: 23, maSV: "SV043", hoTen: "Lý Hải Nam", lop: "QTKD2024", soTietNghi: 2, tongTiet: 28, tiLe: "93%", thang: "9/2024" },
+    { stt: 24, maSV: "SV044", hoTen: "Đỗ Thị Hương", lop: "QTKD2024", soTietNghi: 1, tongTiet: 28, tiLe: "96%", thang: "9/2024" },
+    { stt: 25, maSV: "SV045", hoTen: "Phí Văn Minh", lop: "QTKD2024", soTietNghi: 0, tongTiet: 28, tiLe: "100%", thang: "9/2024" },
+
+    // TCNH2024 - Tháng 9
+    { stt: 26, maSV: "SV051", hoTen: "Vũ Văn Cường", lop: "TCNH2024", soTietNghi: 2, tongTiet: 32, tiLe: "94%", thang: "9/2024" },
+    { stt: 27, maSV: "SV052", hoTen: "Bùi Thị Nga", lop: "TCNH2024", soTietNghi: 0, tongTiet: 32, tiLe: "100%", thang: "9/2024" },
+    { stt: 28, maSV: "SV053", hoTen: "Đặng Văn Hải", lop: "TCNH2024", soTietNghi: 1, tongTiet: 32, tiLe: "97%", thang: "9/2024" },
+    { stt: 29, maSV: "SV054", hoTen: "Ngô Thị Thu", lop: "TCNH2024", soTietNghi: 3, tongTiet: 32, tiLe: "91%", thang: "9/2024" },
+    { stt: 30, maSV: "SV055", hoTen: "Trịnh Văn Hòa", lop: "TCNH2024", soTietNghi: 0, tongTiet: 32, tiLe: "100%", thang: "9/2024" },
+  ];
+
   const renderContent = () => {
     switch (activeMenu) {
       case "Dashboard":
@@ -199,7 +322,7 @@ export default function Home() {
                 { label: "Tổng Sinh Viên", value: "60", change: "+5%" },
                 { label: "Lớp Học", value: "45", change: "+2%" },
                 { label: "Môn Học", value: "128", change: "+8%" },
-                { label: "Giảng Viên", value: "56", change: "+3%" },
+                { label: "Giảng Viên", value: "25", change: "+4%" },
               ].map((stat, i) => (
                 <div key={i} className="bg-neutral-800 p-6 rounded-2xl border border-neutral-700">
                   <p className="text-neutral-400 text-sm">{stat.label}</p>
@@ -378,6 +501,8 @@ export default function Home() {
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">STT</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Mã GV</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Họ Tên</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Học Vị</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Chuyên Ngành</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Môn Giảng Dạy</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Email</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">SĐT</th>
@@ -390,6 +515,8 @@ export default function Home() {
                       <td className="px-4 py-3 text-sm">{t.stt}</td>
                       <td className="px-4 py-3 text-sm font-medium">{t.maGV}</td>
                       <td className="px-4 py-3 text-sm">{t.hoTen}</td>
+                      <td className="px-4 py-3 text-sm">{t.hocVi}</td>
+                      <td className="px-4 py-3 text-sm">{t.chuyenNganh}</td>
                       <td className="px-4 py-3 text-sm">{t.mon}</td>
                       <td className="px-4 py-3 text-sm text-cyan-400">{t.email}</td>
                       <td className="px-4 py-3 text-sm">{t.sdt}</td>
@@ -503,42 +630,116 @@ export default function Home() {
 
       case "Điểm Danh":
         return (
-          <div className="bg-neutral-800 rounded-2xl border border-neutral-700 p-8">
-            <h2 className="text-xl font-semibold mb-4">Điểm Danh</h2>
-            <p className="text-neutral-400 mb-4">Chọn lớp để điểm danh:</p>
-            <div className="space-y-3">
-              {classes.map((c, i) => (
-                <div key={i} className="flex justify-between items-center p-4 bg-neutral-700 rounded-lg">
-                  <div>
-                    <p className="font-medium">{c.tenLop}</p>
-                    <p className="text-sm text-neutral-400">Giảng viên: {c.giangVien}</p>
-                  </div>
-                  <button className="px-4 py-2 bg-cyan-600 rounded-lg hover:bg-cyan-500 transition-colors">
-                    Điểm Danh
-                  </button>
-                </div>
-              ))}
+          <div className="bg-neutral-800 rounded-2xl border border-neutral-700 overflow-hidden">
+            <div className="p-6 border-b border-neutral-700 flex justify-between items-center">
+              <h2 className="text-xl font-semibold">Điểm Danh Sinh Viên</h2>
+              <button className="px-4 py-2 bg-cyan-600 rounded-lg hover:bg-cyan-500 transition-colors">
+                + Điểm Danh Hôm Nay
+              </button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-neutral-700/50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">STT</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Mã SV</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Họ Tên</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Lớp</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Số Tiết Nghỉ</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Tổng Tiết</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Tỷ Lệ</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Tháng</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-700">
+                  {attendance.map((a, i) => (
+                    <tr key={i} className="hover:bg-neutral-700/30">
+                      <td className="px-4 py-3 text-sm">{a.stt}</td>
+                      <td className="px-4 py-3 text-sm font-medium">{a.maSV}</td>
+                      <td className="px-4 py-3 text-sm">{a.hoTen}</td>
+                      <td className="px-4 py-3 text-sm">{a.lop}</td>
+                      <td className="px-4 py-3 text-sm">{a.soTietNghi}</td>
+                      <td className="px-4 py-3 text-sm">{a.tongTiet}</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className={`px-2 py-1 rounded text-xs ${
+                          parseFloat(a.tiLe) >= 95 ? "bg-green-600" :
+                          parseFloat(a.tiLe) >= 90 ? "bg-yellow-600" : "bg-red-600"
+                        }`}>
+                          {a.tiLe}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">{a.thang}</td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-1 rounded text-xs ${
+                          parseFloat(a.tiLe) >= 95 ? "text-green-400" :
+                          parseFloat(a.tiLe) >= 90 ? "text-yellow-400" : "text-red-400"
+                        }`}>
+                          {parseFloat(a.tiLe) >= 95 ? "Tốt" :
+                           parseFloat(a.tiLe) >= 90 ? "Khá" : "Kém"}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         );
 
       case "Điểm Số":
         return (
-          <div className="bg-neutral-800 rounded-2xl border border-neutral-700 p-8">
-            <h2 className="text-xl font-semibold mb-4">Quản Lý Điểm</h2>
-            <p className="text-neutral-400 mb-4">Chọn lớp và môn học để nhập điểm:</p>
-            <div className="space-y-3">
-              {subjects.map((s, i) => (
-                <div key={i} className="flex justify-between items-center p-4 bg-neutral-700 rounded-lg">
-                  <div>
-                    <p className="font-medium">{s.tenMH}</p>
-                    <p className="text-sm text-neutral-400">Giảng viên: {s.giangVien}</p>
-                  </div>
-                  <button className="px-4 py-2 bg-cyan-600 rounded-lg hover:bg-cyan-500 transition-colors">
-                    Nhập Điểm
-                  </button>
-                </div>
-              ))}
+          <div className="bg-neutral-800 rounded-2xl border border-neutral-700 overflow-hidden">
+            <div className="p-6 border-b border-neutral-700 flex justify-between items-center">
+              <h2 className="text-xl font-semibold">Quản Lý Điểm Số</h2>
+              <button className="px-4 py-2 bg-cyan-600 rounded-lg hover:bg-cyan-500 transition-colors">
+                + Nhập Điểm
+              </button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-neutral-700/50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">STT</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Mã SV</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Họ Tên</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Lớp</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Môn Học</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Điểm GK</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Điểm CK</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Điểm TB</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Kết Quả</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-700">
+                  {grades.map((g, i) => (
+                    <tr key={i} className="hover:bg-neutral-700/30">
+                      <td className="px-4 py-3 text-sm">{g.stt}</td>
+                      <td className="px-4 py-3 text-sm font-medium">{g.maSV}</td>
+                      <td className="px-4 py-3 text-sm">{g.hoTen}</td>
+                      <td className="px-4 py-3 text-sm">{g.lop}</td>
+                      <td className="px-4 py-3 text-sm">{g.monHoc}</td>
+                      <td className="px-4 py-3 text-sm">{g.diemGK}</td>
+                      <td className="px-4 py-3 text-sm">{g.diemCK}</td>
+                      <td className="px-4 py-3 text-sm font-medium">{g.diemTB}</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className={`px-2 py-1 rounded text-xs ${
+                          g.ketQua === "Xuất sắc" ? "bg-green-600" :
+                          g.ketQua === "Giỏi" ? "bg-blue-600" :
+                          g.ketQua === "Khá" ? "bg-yellow-600" : "bg-gray-600"
+                        }`}>
+                          {g.ketQua}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <button className="text-cyan-400 hover:text-cyan-300 mr-2 text-sm">Sửa</button>
+                        <button className="text-red-400 hover:text-red-300 text-sm">Xóa</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         );
