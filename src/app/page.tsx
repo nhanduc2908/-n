@@ -716,13 +716,13 @@ const [tuitionData, setTuitionData] = useState([
   // Tuition handlers
   const [showTuitionModal, setShowTuitionModal] = useState(false);
   const [tuitionForm, setTuitionForm] = useState({
-    maSV: "", hocky: "Học Kỳ 1 2024-2025", soTien: 0, trangThai: "Chưa đóng", ngayDong: "-"
+    maSV: "", hocky: "Học Kỳ 1 2024-2025", soTien: 0, soTin: 0, donGia: 500000, trangThai: "Chưa đóng", ngayDong: "-"
   });
 
   const handleAddTuition = () => {
     setEditingTuition(null);
     setTuitionForm({
-      maSV: "", hocky: "Học Kỳ 1 2024-2025", soTien: 15000000, trangThai: "Chưa đóng", ngayDong: "-"
+      maSV: "", hocky: "Học Kỳ 1 2024-2025", soTien: 0, soTin: 0, donGia: 500000, trangThai: "Chưa đóng", ngayDong: "-"
     });
     setShowTuitionModal(true);
   };
@@ -736,6 +736,8 @@ const [tuitionData, setTuitionData] = useState([
         ...editingTuition,
         maSV: tuitionForm.maSV,
         hocky: tuitionForm.hocky,
+        soTin: tuitionForm.soTin,
+        donGia: tuitionForm.donGia,
         soTien: tuitionForm.soTien,
         trangThai: tuitionForm.trangThai,
         ngayDong: tuitionForm.trangThai === "Đã đóng" ? new Date().toISOString().split('T')[0] : "-"
@@ -747,8 +749,10 @@ const [tuitionData, setTuitionData] = useState([
         maSV: tuitionForm.maSV,
         hoTen: student.hoTen,
         lop: student.lop,
-        hocky: tuitionForm.hocky,
+        soTin: tuitionForm.soTin,
+        donGia: tuitionForm.donGia,
         soTien: tuitionForm.soTien,
+        hocky: tuitionForm.hocky,
         trangThai: tuitionForm.trangThai,
         ngayDong: tuitionForm.trangThai === "Đã đóng" ? new Date().toISOString().split('T')[0] : "-"
       };
@@ -763,6 +767,8 @@ const [tuitionData, setTuitionData] = useState([
       maSV: t.maSV,
       hocky: t.hocky,
       soTien: t.soTien,
+      soTin: t.soTin || 0,
+      donGia: t.donGia || 500000,
       trangThai: t.trangThai,
       ngayDong: t.ngayDong
     });
@@ -1060,6 +1066,8 @@ const [tuitionData, setTuitionData] = useState([
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Họ Tên</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Lớp</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Học Kỳ</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Số Tín</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Đơn Giá</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Số Tiền</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Trạng Thái</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-neutral-300">Ngày Đóng</th>
@@ -1067,13 +1075,15 @@ const [tuitionData, setTuitionData] = useState([
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-700">
-                  {tuition.map((t, i) => (
+                  {tuition.map((t: any, i) => (
                     <tr key={i} className="hover:bg-neutral-700/30">
                       <td className="px-4 py-3 text-sm">{t.stt}</td>
                       <td className="px-4 py-3 text-sm font-medium">{t.maSV}</td>
                       <td className="px-4 py-3 text-sm">{t.hoTen}</td>
                       <td className="px-4 py-3 text-sm">{t.lop}</td>
                       <td className="px-4 py-3 text-sm">{t.hocky}</td>
+                      <td className="px-4 py-3 text-sm">{t.soTin || 30}</td>
+                      <td className="px-4 py-3 text-sm">{((t.soTien || 0) / (t.soTin || 30)).toLocaleString()} đ</td>
                       <td className="px-4 py-3 text-sm">{t.soTien.toLocaleString()} đ</td>
                       <td className="px-4 py-3 text-sm">
                         <span className={`px-2 py-1 rounded text-xs ${t.trangThai === "Đã đóng" ? "bg-green-600" : "bg-red-600"}`}>
@@ -1509,11 +1519,10 @@ const [tuitionData, setTuitionData] = useState([
                   onChange={(e) => setStudentForm({...studentForm, lop: e.target.value})}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
                 >
-                  <option value="CNTT2024">CNTT2024</option>
-                  <option value="CNTT2023">CNTT2023</option>
-                  <option value="KT2024">KT2024</option>
-                  <option value="QTKD2024">QTKD2024</option>
-                  <option value="TCNH2024">TCNH2024</option>
+                  <option value="">Chọn lớp</option>
+                  {classes.map(c => (
+                    <option key={c.maLop} value={c.maLop}>{c.maLop} - {c.tenLop}</option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -1815,13 +1824,17 @@ const [tuitionData, setTuitionData] = useState([
             <h3 className="text-xl font-semibold mb-4">Nhập Điểm</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Mã Sinh Viên</label>
-                <input
-                  type="text"
+                <label className="block text-sm font-medium mb-1">Sinh Viên</label>
+                <select
                   value={gradeForm.maSV}
                   onChange={(e) => setGradeForm({...gradeForm, maSV: e.target.value})}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
-                />
+                >
+                  <option value="">Chọn sinh viên</option>
+                  {students.map(s => (
+                    <option key={s.maSV} value={s.maSV}>{s.maSV} - {s.hoTen}</option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Môn Học</label>
@@ -1830,13 +1843,26 @@ const [tuitionData, setTuitionData] = useState([
                   onChange={(e) => setGradeForm({...gradeForm, monHoc: e.target.value})}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
                 >
+                  <option value="">Chọn môn học</option>
                   {subjects.map(s => (
                     <option key={s.maMH} value={s.tenMH}>{s.tenMH}</option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Điểm Giữa Kỳ</label>
+                <label className="block text-sm font-medium mb-1">Điểm Chuyên Cần (CC)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="10"
+                  value={gradeForm.diemCC}
+                  onChange={(e) => setGradeForm({...gradeForm, diemCC: parseFloat(e.target.value)})}
+                  className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Điểm Giữa Kỳ (GK)</label>
                 <input
                   type="number"
                   step="0.1"
@@ -1848,7 +1874,7 @@ const [tuitionData, setTuitionData] = useState([
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Điểm Cuối Kỳ</label>
+                <label className="block text-sm font-medium mb-1">Điểm Cuối Kỳ (CK)</label>
                 <input
                   type="number"
                   step="0.1"
@@ -1858,6 +1884,10 @@ const [tuitionData, setTuitionData] = useState([
                   onChange={(e) => setGradeForm({...gradeForm, diemCK: parseFloat(e.target.value)})}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
                 />
+              </div>
+              <div className="p-3 bg-neutral-700 rounded-lg text-sm">
+                <p className="font-medium">Công thức tính điểm:</p>
+                <p className="text-neutral-400">Điểm TB = CC × 0.1 + GK × 0.3 + CK × 0.6</p>
               </div>
             </div>
             <div className="flex gap-3 mt-6">
@@ -1885,13 +1915,24 @@ const [tuitionData, setTuitionData] = useState([
             <h3 className="text-xl font-semibold mb-4">Điểm Danh</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Mã Sinh Viên</label>
-                <input
-                  type="text"
+                <label className="block text-sm font-medium mb-1">Sinh Viên</label>
+                <select
                   value={attendanceForm.maSV}
-                  onChange={(e) => setAttendanceForm({...attendanceForm, maSV: e.target.value})}
+                  onChange={(e) => {
+                    const student = students.find(s => s.maSV === e.target.value);
+                    setAttendanceForm({
+                      ...attendanceForm,
+                      maSV: e.target.value,
+                      lop: student?.lop || ""
+                    });
+                  }}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
-                />
+                >
+                  <option value="">Chọn sinh viên</option>
+                  {students.map(s => (
+                    <option key={s.maSV} value={s.maSV}>{s.maSV} - {s.hoTen}</option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Lớp</label>
@@ -1900,11 +1941,10 @@ const [tuitionData, setTuitionData] = useState([
                   onChange={(e) => setAttendanceForm({...attendanceForm, lop: e.target.value})}
                   className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
                 >
-                  <option value="CNTT2024">CNTT2024</option>
-                  <option value="CNTT2023">CNTT2023</option>
-                  <option value="KT2024">KT2024</option>
-                  <option value="QTKD2024">QTKD2024</option>
-                  <option value="TCNH2024">TCNH2024</option>
+                  <option value="">Chọn lớp</option>
+                  {classes.map(c => (
+                    <option key={c.maLop} value={c.maLop}>{c.maLop}</option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -2066,7 +2106,7 @@ const [tuitionData, setTuitionData] = useState([
             </h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Mã Sinh Viên</label>
+                <label className="block text-sm font-medium mb-1">Sinh Viên</label>
                 <select
                   value={tuitionForm.maSV}
                   onChange={(e) => setTuitionForm({...tuitionForm, maSV: e.target.value})}
@@ -2088,6 +2128,26 @@ const [tuitionData, setTuitionData] = useState([
                   <option value="Học Kỳ 1 2024-2025">Học Kỳ 1 2024-2025</option>
                   <option value="Học Kỳ 2 2024-2025">Học Kỳ 2 2024-2025</option>
                 </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Số Tín Chỉ</label>
+                <input
+                  type="number"
+                  min="1"
+                  value={tuitionForm.soTin || ""}
+                  onChange={(e) => setTuitionForm({...tuitionForm, soTin: parseInt(e.target.value), soTien: parseInt(e.target.value) * 500000})}
+                  className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
+                  placeholder="Nhập số tín chỉ"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Đơn Giá / Tín Chỉ (VNĐ)</label>
+                <input
+                  type="number"
+                  value={tuitionForm.donGia || 500000}
+                  onChange={(e) => setTuitionForm({...tuitionForm, donGia: parseInt(e.target.value), soTien: (tuitionForm.soTin || 0) * parseInt(e.target.value)})}
+                  className="w-full px-4 py-2 bg-neutral-700 rounded-lg border border-neutral-600 focus:border-cyan-500 outline-none"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Số Tiền (VNĐ)</label>
