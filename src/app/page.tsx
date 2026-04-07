@@ -1888,6 +1888,9 @@ const [tuitionData, setTuitionData] = useState([
               <div className="p-3 bg-neutral-700 rounded-lg text-sm">
                 <p className="font-medium">Công thức tính điểm:</p>
                 <p className="text-neutral-400">Điểm TB = CC × 0.1 + GK × 0.3 + CK × 0.6</p>
+                <p className="mt-2 text-cyan-400 font-medium">
+                  Điểm TB dự kiến: {((gradeForm.diemCC || 0) * 0.1 + (gradeForm.diemGK || 0) * 0.3 + (gradeForm.diemCK || 0) * 0.6).toFixed(1)}
+                </p>
               </div>
             </div>
             <div className="flex gap-3 mt-6">
