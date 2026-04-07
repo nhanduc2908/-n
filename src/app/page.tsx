@@ -561,11 +561,27 @@ const [tuitionData, setTuitionData] = useState([
   };
 
   const handleSaveGrade = () => {
-    const diemTB = gradeForm.diemCC * 0.1 + gradeForm.diemGK * 0.3 + gradeForm.diemCK * 0.6;
-    let ketQua = "Trung bình";
-    if (diemTB >= 9) ketQua = "Xuất sắc";
-    else if (diemTB >= 8) ketQua = "Giỏi";
-    else if (diemTB >= 6.5) ketQua = "Khá";
+    // Check attendance for this student
+    const studentAttendance = attendance.find(a => a.maSV === gradeForm.maSV);
+    const attendanceRate = studentAttendance ? parseFloat(studentAttendance.tiLe) : 100;
+    
+    let diemTB = 0;
+    let ketQua = "Rớt";
+    
+    // If attendance is below 80%, fail automatically
+    if (attendanceRate < 80) {
+      diemTB = 0;
+      ketQua = "Rớt (Điểm danh < 80%)";
+    } else {
+      // Calculate normally
+      diemTB = gradeForm.diemCC * 0.1 + gradeForm.diemGK * 0.3 + gradeForm.diemCK * 0.6;
+      
+      if (diemTB >= 9) ketQua = "Xuất sắc";
+      else if (diemTB >= 8) ketQua = "Giỏi";
+      else if (diemTB >= 6.5) ketQua = "Khá";
+      else if (diemTB >= 5) ketQua = "Trung bình";
+      else ketQua = "Rớt";
+    }
 
     const student = students.find(s => s.maSV === gradeForm.maSV);
     if (!student) return;
@@ -1258,7 +1274,8 @@ const [tuitionData, setTuitionData] = useState([
                         <span className={`px-2 py-1 rounded text-xs ${
                           g.ketQua === "Xuất sắc" ? "bg-green-600" :
                           g.ketQua === "Giỏi" ? "bg-blue-600" :
-                          g.ketQua === "Khá" ? "bg-yellow-600" : "bg-gray-600"
+                          g.ketQua === "Khá" ? "bg-yellow-600" :
+                          g.ketQua.includes("Rớt") ? "bg-red-600" : "bg-gray-600"
                         }`}>
                           {g.ketQua}
                         </span>
@@ -1890,6 +1907,9 @@ const [tuitionData, setTuitionData] = useState([
                 <p className="text-neutral-400">Điểm TB = CC × 0.1 + GK × 0.3 + CK × 0.6</p>
                 <p className="mt-2 text-cyan-400 font-medium">
                   Điểm TB dự kiến: {((gradeForm.diemCC || 0) * 0.1 + (gradeForm.diemGK || 0) * 0.3 + (gradeForm.diemCK || 0) * 0.6).toFixed(1)}
+                </p>
+                <p className="mt-2 text-yellow-400 text-xs">
+                  Lưu ý: Nếu tỷ lệ điểm danh dưới 80%, sinh viên sẽ bị Rớt với điểm TB = 0
                 </p>
               </div>
             </div>
