@@ -1,72 +1,35 @@
-# Active Context: Next.js Starter Template
+# Active Context: Next.js Starter Template + Laravel Practice Assets
 
 ## Current State
 
 **Template Status**: ✅ Ready for development
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+The repository remains a Next.js 16 starter template. In this session, a standalone Laravel practice asset folder was added to convert requested PHP/Laravel learning steps into concrete files.
 
 ## Recently Completed
 
-- [x] Base Next.js 16 setup with App Router
-- [x] TypeScript configuration with strict mode
-- [x] Tailwind CSS 4 integration
-- [x] ESLint configuration
-- [x] Memory bank documentation
-- [x] Recipe system for common features
+- [x] Added Laravel-style model files (`Employee`, `Department`)
+- [x] Added Laravel-style `EmployeeController` with index/create/store actions
+- [x] Added departments migration example
+- [x] Added Blade layout, employee views, and alert component examples
+- [x] Added route resource example for employees
+- [x] Added Vietnamese practice guide documenting bài 1 → bài 14
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
+| `src/app/page.tsx` | Next.js home page | ✅ Ready |
+| `src/app/layout.tsx` | Next.js root layout | ✅ Ready |
+| `php-laravel/` | Laravel practice code examples | ✅ Added |
+| `docs/laravel-employee-practice-vi.md` | Vietnamese tutorial summary | ✅ Added |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 
 ## Current Focus
 
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
-
-## Quick Start Guide
-
-### To add a new page:
-
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
-
-### To add components:
-
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### To add a database:
-
-Follow `.kilocode/recipes/add-database.md`
-
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
+The project now contains:
+1. A clean Next.js base for web app work
+2. A separate PHP/Laravel practice package for tutorial-driven learning
 
 ## Available Recipes
 
@@ -74,14 +37,9 @@ export async function GET() {
 |--------|------|----------|
 | Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
 
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
-
 ## Session History
 
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-04-07 | Added `php-laravel/` tutorial files and Vietnamese Laravel practice documentation |
